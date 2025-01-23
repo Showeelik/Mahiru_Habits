@@ -4,6 +4,30 @@ on:
   [push, pull_request]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: Install Poetry
+        uses: Gr1N/setup-poetry@v8
+        with:
+          poetry-version: 2.0.1  # Укажите необходимую версию Poetry
+
+      - name: Install flake8
+        run: poetry add flake8
+
+      - name: Run flake8
+        run: |
+          flake8 .
+        continue-on-error: true
+
   test:
     runs-on: ubuntu-latest
     services:
