@@ -33,7 +33,7 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.getenv("DEBUG", False))
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", default=["*"]).split(" ")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", default=["*"])
 
 
 # Настройки CORS
