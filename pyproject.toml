@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mahiru-habits-coursework"
-version = "0.2.0"
+version = "0.3.0"
 description = "Coursework project for tracking habits"
 authors = ["Mahiru <mahiru@mahiru.com>"]
 readme = "README.md"
