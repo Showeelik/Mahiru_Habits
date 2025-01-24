@@ -20,6 +20,12 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
     ln -s "${HOME}/.local/bin/poetry" /usr/local/bin/poetry && \
     poetry install --no-root
 
+# Копирование скрипта в контейнер
+COPY docker-entrypoint.sh /usr/local/bin/
+
+# Установка прав на выполнение
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 # Настройка порта для приложения
 EXPOSE 8000
 

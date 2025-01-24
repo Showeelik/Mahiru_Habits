@@ -85,29 +85,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/habits_project:latest
-
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
-
-      - name: Add server to known_hosts
-        run: ssh-keyscan -H ${{ secrets.SSH_IP_ADDRESS }} >> ~/.ssh/known_hosts
-
-      - name: Deploy application
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP_ADDRESS }} << 'EOF'
-            docker pull ${{ secrets.DOCKER_USERNAME }}/habits_project:latest
-            docker stop habits_project || true
-            docker rm habits_project || true
-            docker run -d --name habits_project -p 8001:8000 \
-              -e "DATABASE_URL=${{ secrets.DATABASE_URL }}" \
-              -e "SECRET_KEY_DJANGO=${{ secrets.SECRET_KEY_DJANGO }}" \
-              ${{ secrets.DOCKER_USERNAME }}/habits_project:latest
-          EOF
+          push: false
+          tags: habits_project:latest
