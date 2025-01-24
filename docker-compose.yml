@@ -13,7 +13,7 @@ services:
       - redis
     volumes:
       - .:/app
-    entrypoint: /usr/local/bin/docker-entrypoint.sh
+    entrypoint: /app/habits_project/docker-entrypoint.sh
 
   postgres:
     image: postgres:15
