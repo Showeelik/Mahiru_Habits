@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Установите Poetry
-ENV POETRY_VERSION=1.8.2
+ENV POETRY_VERSION=2.0.1
 RUN curl -sSL https://install.python-poetry.org | python3 - && \
     ln -s "${HOME}/.local/bin/poetry" /usr/local/bin/poetry
 
