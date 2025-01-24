@@ -14,7 +14,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
     ln -s "${HOME}/.local/bin/poetry" /usr/local/bin/poetry
 
 # Установите рабочую директорию
-WORKDIR /app
+WORKDIR ~/habits
 
 # Скопируйте файлы зависимостей
 COPY pyproject.toml poetry.lock ./
