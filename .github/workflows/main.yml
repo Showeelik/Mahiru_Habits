@@ -109,5 +109,5 @@ jobs:
       - name: Restart application
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP_ADDRESS }} << 'EOF'
-            sudo systemctl restart myproject.service
+            sudo systemctl restart habits_project.service
           EOF
