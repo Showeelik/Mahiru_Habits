@@ -107,7 +107,7 @@ jobs:
             docker stop habits_project || true
             docker rm habits_project || true
             docker run -d --name habits_project -p 8000:8000 \
-              -e DATABASE_URL=${{ secrets.DATABASE_URL }} \
-              -e SECRET_KEY_DJANGO=${{ secrets.SECRET_KEY_DJANGO }} \
+              -e "DATABASE_URL=${{ secrets.DATABASE_URL }}" \
+              -e "SECRET_KEY_DJANGO=${{ secrets.SECRET_KEY_DJANGO }}" \
               ${{ secrets.DOCKER_USERNAME }}/habits_project:latest
           EOF
