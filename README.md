@@ -124,15 +124,6 @@ docker-compose down
 docker-compose exec web python manage.py test
 ```
 
-## Развернутое приложение
-
-Приложение доступно по адресу: http://158.160.73.162/
-
-API документация:
-
-- Swagger: http://158.160.73.162/swagger/
-- ReDoc: http://158.160.73.162/redoc/
-
 ## Автор
 
 [mahiru]
